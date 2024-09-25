@@ -14,7 +14,6 @@ data= json.loads(response.text)
 print(data)
 
 
-
 # --------------------------------- Set layout of web ---------------------------------
 st.set_page_config(layout="wide")
 st.title("Car Sales & Analysis")
