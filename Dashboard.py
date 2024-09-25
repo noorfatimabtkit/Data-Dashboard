@@ -2,14 +2,18 @@ import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
+import requests
 import altair as alt
 import json
 
 # Opt-in to future behavior for silent downcasting
 pd.set_option('future.no_silent_downcasting', True)
 
-with open('Processed data.json', 'r') as f:
-    data = json.load(f)
+response = requests.request("GET", "https://storage.googleapis.com/coshow-ffcc0.appspot.com/Processed%20data.json")
+data= json.loads(response.text)
+print(data)
+
+
 
 # --------------------------------- Set layout of web ---------------------------------
 st.set_page_config(layout="wide")
